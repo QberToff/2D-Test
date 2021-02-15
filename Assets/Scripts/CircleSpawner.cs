@@ -8,10 +8,14 @@ public class CircleSpawner : MonoBehaviour
     [SerializeField] Circle circle;
     Circle nextCircle;
     
-    [SerializeField] float timeBetweenSpawns = 0.2f;
+    float timeBetweenSpawns = 1f;
     
     Vector3 spawnPos;
 
+    int circleCounter = 0;
+    int diffcounter = 0;
+    [SerializeField] int changeEachCircle = 5;
+    bool finalDifficulty = false;
 
     //playspace borders
     float xMin;
@@ -24,14 +28,18 @@ public class CircleSpawner : MonoBehaviour
     float minScale = 0.7f;
     float maxScale = 3.5f;
 
-    [SerializeField] bool looping =  true;
+    bool looping =  true;
+    //bool diff = false;
+    //bool isProcessing = false;
 
-    // Start is called before the first frame update
+    
+
 
     private void Awake()
     {
         spawnPos = transform.position;
         SetUpMoveBoudaries();
+        diffcounter = changeEachCircle;
     }
 
     IEnumerator Start()
@@ -47,11 +55,11 @@ public class CircleSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        ProcessDifficulty();
     }
 
 
-    private void SetUpMoveBoudaries()//set borders
+    private void SetUpMoveBoudaries()//установка границ игрового поля
     {
 
         Camera gameCamera = Camera.main;
@@ -73,18 +81,63 @@ public class CircleSpawner : MonoBehaviour
         float scaleFactor = Random.Range(minScale, maxScale);
         nextCircle = Instantiate(circle as Circle, new Vector3(Random.Range(xMin, xMax), spawnPos.y, spawnPos.z), Quaternion.identity);
         nextCircle.transform.localScale = new Vector3(scaleFactor, scaleFactor, 1);
+        nextCircle.GetComponent<SpriteRenderer>().color = Random.ColorHSV();
+        circleCounter++;
         
-        
-        if (scaleFactor > minScale && scaleFactor <= 1.2f)
+        if (scaleFactor > minScale && scaleFactor <= 1f)
         {
-            nextCircle.SetSpeed(5f);
+            nextCircle.SetSpeed(5.5f);
+            nextCircle.SetScore(4f);
+        }
+        else if (scaleFactor > 1f && scaleFactor <= 1.5f)
+        {
+            nextCircle.SetSpeed(4.5f);
+            nextCircle.SetScore(3.5f);
+        }
+        else if (scaleFactor > 1.5f && scaleFactor <= 2f)
+        {
+            nextCircle.SetSpeed(3.5f);
             nextCircle.SetScore(3f);
         }
-        else if (scaleFactor > 1.2f && scaleFactor < 2.5f)
+        else if (scaleFactor >2f && scaleFactor <= 2.5f)
         {
             nextCircle.SetSpeed(2.5f);
+            nextCircle.SetScore(2.5f);
+        }
+        else if (scaleFactor > 2f && scaleFactor <= 2.5f)
+        {
+            nextCircle.SetSpeed(1.5f);
+            nextCircle.SetScore(2.5f);
+        }
+        else if (scaleFactor > 2.5f && scaleFactor <= 3f)
+        {
+            nextCircle.SetSpeed(0.5f);
             nextCircle.SetScore(1.5f);
         }
+
+    }
+
+    private void ProcessDifficulty()
+    {
+        
+        if(circleCounter == diffcounter && !finalDifficulty)
+        {
+            timeBetweenSpawns -= 0.1f;
+            circle.IncreaseDefaultSpeed();
+            if(timeBetweenSpawns <= 0.2f)
+            {
+                finalDifficulty = true;
+            }
+            diffcounter += changeEachCircle;
+        }
+        
+        
+        /*(float division = circleCounter % 5;
+        if(division == 0 && !diff)
+        {
+            diff = true;
+            isProcessing = true;
+        }  */  
 
     }
 }

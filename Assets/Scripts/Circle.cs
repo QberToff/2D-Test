@@ -8,7 +8,8 @@ public class Circle : MonoBehaviour
     Rigidbody2D rb;
 
     //movement speed
-    [SerializeField] float speed = 5f;
+    [SerializeField] float defaultSpeed;
+    float speed;
 
     //score per circle
     float score = 15;
@@ -20,7 +21,9 @@ public class Circle : MonoBehaviour
     
     private void Awake()
     {
+        defaultSpeed = 5f;
         rb = GetComponent<Rigidbody2D>();
+        speed = defaultSpeed;
     }
     
     private void FixedUpdate()
@@ -46,6 +49,10 @@ public class Circle : MonoBehaviour
         speed += acceleration;
     }
 
+    public void IncreaseDefaultSpeed()
+    {
+        defaultSpeed += 0.5f;
+    }
     public void SetScore(float mult)
     {
         score = score * mult;
