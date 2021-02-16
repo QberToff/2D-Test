@@ -36,11 +36,12 @@ public class Player : MonoBehaviour
            
             if (circle != null)
             {
+                circle.Die();
                 earnedScore += circle.GetScore();
                 scoreText.text = earnedScore.ToString();
             }
 
-            Destroy(hit.collider.gameObject);
+            //Destroy(hit.collider.gameObject);
 
 
         }

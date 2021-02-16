@@ -81,7 +81,9 @@ public class CircleSpawner : MonoBehaviour
         float scaleFactor = Random.Range(minScale, maxScale);
         nextCircle = Instantiate(circle as Circle, new Vector3(Random.Range(xMin, xMax), spawnPos.y, spawnPos.z), Quaternion.identity);
         nextCircle.transform.localScale = new Vector3(scaleFactor, scaleFactor, 1);
-        nextCircle.GetComponent<SpriteRenderer>().color = Random.ColorHSV();
+        Color col = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f), 1f);
+        nextCircle.GetComponent<SpriteRenderer>().color = col;
+        //nextCircle.SetPopEffect(col);
         circleCounter++;
         
         if (scaleFactor > minScale && scaleFactor <= 1f)
@@ -123,7 +125,7 @@ public class CircleSpawner : MonoBehaviour
         if(circleCounter == diffcounter && !finalDifficulty)
         {
             timeBetweenSpawns -= 0.1f;
-            circle.IncreaseDefaultSpeed();
+           Circle.IncreaseDefaultSpeed();
             if(timeBetweenSpawns <= 0.2f)
             {
                 finalDifficulty = true;
