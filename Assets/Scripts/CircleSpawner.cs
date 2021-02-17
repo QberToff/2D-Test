@@ -29,8 +29,7 @@ public class CircleSpawner : MonoBehaviour
     float maxScale = 3.5f;
 
     bool looping =  true;
-    //bool diff = false;
-    //bool isProcessing = false;
+    
 
     
 
@@ -76,17 +75,16 @@ public class CircleSpawner : MonoBehaviour
         yield return new WaitForSeconds(timeBetweenSpawns);
     }
 
-    private void GenerateCircle()
+    private void GenerateCircle()//метод генерации круга
     {
-        float scaleFactor = Random.Range(minScale, maxScale);
-        nextCircle = Instantiate(circle as Circle, new Vector3(Random.Range(xMin, xMax), spawnPos.y, spawnPos.z), Quaternion.identity);
-        nextCircle.transform.localScale = new Vector3(scaleFactor, scaleFactor, 1);
-        Color col = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f), 1f);
-        nextCircle.GetComponent<SpriteRenderer>().color = col;
-        //nextCircle.SetPopEffect(col);
+        float scaleFactor = Random.Range(minScale, maxScale);//генерация размера для круга 
+        nextCircle = Instantiate(circle as Circle, new Vector3(Random.Range(xMin, xMax), spawnPos.y, spawnPos.z), Quaternion.identity);//инстант круга
+        nextCircle.transform.localScale = new Vector3(scaleFactor, scaleFactor, 1);//изменение размера круга
+        Color col = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f), 1f);//генерация цвета круга
+        nextCircle.GetComponent<SpriteRenderer>().color = col;//присвоение сгенерированного цвета
         circleCounter++;
         
-        if (scaleFactor > minScale && scaleFactor <= 1f)
+        if (scaleFactor >= minScale && scaleFactor <= 1f)
         {
             nextCircle.SetSpeed(5.5f);
             nextCircle.SetScore(4f);
@@ -133,13 +131,7 @@ public class CircleSpawner : MonoBehaviour
             diffcounter += changeEachCircle;
         }
         
-        
-        /*(float division = circleCounter % 5;
-        if(division == 0 && !diff)
-        {
-            diff = true;
-            isProcessing = true;
-        }  */  
+       
 
     }
 }

@@ -7,18 +7,18 @@ public class Circle : MonoBehaviour
     //cashed ref
     Rigidbody2D rb;
 
-    //movement speed
+    //скорость: defaultSpeed - изначальная, от которой идёт идёт прибавление в speed в зависимости от размера круга
     static float defaultSpeed;
     float speed;
 
-    //score per circle
-    float score = 15;
+    //количество очков за попадание по кружку
+    [SerializeField] float score = 20;
 
     [SerializeField] AudioClip popSFX;
     [SerializeField] GameObject popFX;
 
-
-    float durationOfPop = 1f;
+    //длительность партикла при клика на круг
+    float durationOfPop = 0.5f; 
 
 
     private void Awake()
@@ -40,7 +40,7 @@ public class Circle : MonoBehaviour
     }
 
 
-    private void Move()
+    private void Move()//метод осущетвляющий движение кружка
     {
         rb.isKinematic = false;
         rb.velocity = new Vector2(0f, -1f * speed) ;
@@ -51,13 +51,14 @@ public class Circle : MonoBehaviour
         speed += acceleration;
     }
 
-    public static void IncreaseDefaultSpeed()
+    public static void IncreaseDefaultSpeed()//метод для повышения дефолтной скорости при повышении сложностиыыы
     {
         defaultSpeed += 0.5f;
     }
-    public void SetScore(float mult)
+    public void SetScore(float mult)// метод для установки скорости для экземляра
     {
         score = score * mult;
+        
     }
 
     public void Die()
@@ -70,7 +71,7 @@ public class Circle : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void SetPopEffect(ParticleSystem pop)
+    public void SetPopEffect(ParticleSystem pop)//метод устанавливающий цвет партикла в соответствии со сгенерированным цветом кружка
     {
         var popFX = pop.colorOverLifetime;
         popFX.enabled = true;
