@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class CircleSpawner : MonoBehaviour
 {
     //circle cashed reference and object for configure spawning circle
@@ -16,9 +16,12 @@ public class CircleSpawner : MonoBehaviour
     
     Vector3 spawnPos;// переменная, хранящая положение самого спаунера
 
-    int circleCounter = 0;//счётчик созданных круго
-    int diffcounter = 0;//счётчик уровня сложнсти
+    int circleCounter = 0;//счётчик созданных кругов
+    int diffcounter = 0;//число кругов при котором изменится уровень сложнсти
+    int difflevel = 1;
     bool finalDifficulty = false; //индикатор финальной сложности
+
+    [SerializeField] TextMeshProUGUI level;// cashed ref to UI level
 
     [SerializeField] int changeEachCircle = 25;// количество созданных кругов для перехода на следующий уровень слолжности
 
@@ -45,6 +48,10 @@ public class CircleSpawner : MonoBehaviour
         SetUpMoveBoudaries();
         diffcounter = changeEachCircle;
         bundleLoader = FindObjectOfType<BundleLoader>();
+        difflevel = 1;
+        level.text = difflevel.ToString();
+        
+
     }
 
     IEnumerator Start()
@@ -54,6 +61,7 @@ public class CircleSpawner : MonoBehaviour
            yield return StartCoroutine(SpawnCircles());
         }
         while (looping);
+
         
     }
 
@@ -135,12 +143,16 @@ public class CircleSpawner : MonoBehaviour
         if(circleCounter == diffcounter && !finalDifficulty)
         {
             timeBetweenSpawns -= 0.1f;
-           Circle.IncreaseDefaultSpeed();
-            if(timeBetweenSpawns <= 0.2f)
+            Circle.IncreaseDefaultSpeed();
+            if (timeBetweenSpawns <= 0.2f)
             {
                 finalDifficulty = true;
             }
+            difflevel++;
             diffcounter += changeEachCircle;
+            level.text = difflevel.ToString();
+            Debug.Log(difflevel);
+
         }
         
     }
