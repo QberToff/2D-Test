@@ -14,7 +14,7 @@ public class CircleSpawner : MonoBehaviour
     
     float timeBetweenSpawns = 1f;
     
-    Vector3 spawnPos;
+    Vector3 spawnPos;// переменная, хранящая положение самого спаунера
 
     int circleCounter = 0;//счётчик созданных круго
     int diffcounter = 0;//счётчик уровня сложнсти
@@ -152,6 +152,7 @@ public class CircleSpawner : MonoBehaviour
             if(bundleLoader.IsLoaded)
             {
                 circle = bundleLoader.GetLoadedAsset().GetComponent<Circle>();
+                isChecked = true;
             }
 
 
