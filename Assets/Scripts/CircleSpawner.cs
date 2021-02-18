@@ -5,8 +5,11 @@ using UnityEngine;
 public class CircleSpawner : MonoBehaviour
 {
     //circle cashed reference and object for configure spawning circle
-    [SerializeField] Circle circle;
+    Circle circle;
     Circle nextCircle;
+
+    [SerializeField] BundleLoader bundleLoader;
+
     
     float timeBetweenSpawns = 1f;
     
@@ -29,7 +32,7 @@ public class CircleSpawner : MonoBehaviour
     float maxScale = 3.5f;
 
     bool looping =  true;
-    
+    bool isChecked = false;
 
     
 
@@ -54,6 +57,7 @@ public class CircleSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GetCirclePrefab();
         ProcessDifficulty();
     }
 
@@ -70,9 +74,13 @@ public class CircleSpawner : MonoBehaviour
 
     IEnumerator SpawnCircles()
     {
-        GenerateCircle();
-        Debug.Log("Circle spawned");
-        yield return new WaitForSeconds(timeBetweenSpawns);
+        if(!circle)
+        {
+            GenerateCircle();
+            Debug.Log("Circle spawned");
+            yield return new WaitForSeconds(timeBetweenSpawns);
+        }
+        
     }
 
     private void GenerateCircle()//метод генерации круга
@@ -131,7 +139,22 @@ public class CircleSpawner : MonoBehaviour
             diffcounter += changeEachCircle;
         }
         
-       
+    }
+
+    private void GetCirclePrefab()
+    {
+        if(!isChecked)
+        {
+            if(bundleLoader.IsChecked)
+            {
+                circle = bundleLoader.GetLoadedAsset();
+            }
+
+
+        }
+
+
 
     }
+
 }
