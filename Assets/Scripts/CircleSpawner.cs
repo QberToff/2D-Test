@@ -8,6 +8,7 @@ public class CircleSpawner : MonoBehaviour
     Circle circle;
     Circle nextCircle;
 
+    //cashed ref for bundleloader
     [SerializeField] BundleLoader bundleLoader;
 
     
@@ -15,19 +16,20 @@ public class CircleSpawner : MonoBehaviour
     
     Vector3 spawnPos;
 
-    int circleCounter = 0;
-    int diffcounter = 0;
-    [SerializeField] int changeEachCircle = 5;
-    bool finalDifficulty = false;
+    int circleCounter = 0;//счётчик созданных круго
+    int diffcounter = 0;//счётчик уровня сложнсти
+    bool finalDifficulty = false; //индикатор финальной сложности
 
-    //playspace borders
+    [SerializeField] int changeEachCircle = 25;// количество созданных кругов для перехода на следующий уровень слолжности
+
+    //границы игрового пространства
     float xMin;
     float xMax;
     float yMin;
     float yMax;
     float padding = 1.7f;
 
-    //scale restrictions
+    //границы для генерации множителя размера
     float minScale = 0.7f;
     float maxScale = 3.5f;
 
@@ -93,6 +95,7 @@ public class CircleSpawner : MonoBehaviour
         nextCircle.GetComponent<SpriteRenderer>().color = col;//присвоение сгенерированного цвета
         circleCounter++;
         
+        //условия, отвечающие за установку скорости и количества очков в зависимости от размера
         if (scaleFactor >= minScale && scaleFactor <= 1f)
         {
             nextCircle.SetSpeed(5.5f);
@@ -126,7 +129,7 @@ public class CircleSpawner : MonoBehaviour
 
     }
 
-    private void ProcessDifficulty()
+    private void ProcessDifficulty()//увеличение уровня сложности, посредством уменьшения времени между спауном
     {
         
         if(circleCounter == diffcounter && !finalDifficulty)
@@ -146,7 +149,7 @@ public class CircleSpawner : MonoBehaviour
     {
         if(!isChecked)
         {
-            if(bundleLoader.IsChecked)
+            if(bundleLoader.IsLoaded)
             {
                 circle = bundleLoader.GetLoadedAsset().GetComponent<Circle>();
             }

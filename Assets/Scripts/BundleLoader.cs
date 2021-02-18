@@ -11,7 +11,7 @@ public class BundleLoader : MonoBehaviour
 
     //bool assetLoaded = false;
 
-    public bool IsChecked { get; set; } = false;
+    public bool IsLoaded { get; set; } = false; //индикатор окончания работы с бандлом
 
     private void Awake()
     {
@@ -71,8 +71,8 @@ public class BundleLoader : MonoBehaviour
 
         if (loadedAsset != null)
         {
-            this.IsChecked = true;
-            Debug.Log("assetLoaded = " + this.IsChecked);
+            this.IsLoaded = true;
+            Debug.Log("assetLoaded = " + this.IsLoaded);
         }
 
     }
@@ -103,8 +103,8 @@ public class BundleLoader : MonoBehaviour
 
         if (loadedAsset != null)
         {
-            this.IsChecked = true;
-            Debug.Log("assetLoaded = " + this.IsChecked);
+            this.IsLoaded = true;
+            Debug.Log("assetLoaded = " + this.IsLoaded);
         }
 
     }
