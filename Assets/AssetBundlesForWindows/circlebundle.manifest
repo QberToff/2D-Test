@@ -1,0 +1,42 @@
+ManifestFileVersion: 0
+CRC: 2501683048
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 74ea5f128833b64b54077510981158d2
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 663987f93eedcbb9f7df0b8c3786d0fd
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 50
+  Script: {instanceID: 0}
+- Class: 58
+  Script: {instanceID: 0}
+- Class: 83
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 233e90c5785cc944aba12ce8113585f2, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 198
+  Script: {instanceID: 0}
+- Class: 199
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Prefab/Circle.prefab
+Dependencies: []

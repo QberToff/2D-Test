@@ -602,7 +602,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 708fdf2c24f804f58857d23e3c3fcb48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  assetBundleURL: https://drive.google.com/uc?export=download&id=1rxoepMGRPIU9BckLutqqVOukjfQZdR5b
+  assetBundleMacURL: https://drive.google.com/uc?export=download&id=1rxoepMGRPIU9BckLutqqVOukjfQZdR5b
+  assetBundleWinURL: https://drive.google.com/uc?export=download&id=1YkkYChTg3GWGy4vVpEw6Zx90S2LEdRlP
 --- !u!1 &2118489637
 GameObject:
   m_ObjectHideFlags: 0

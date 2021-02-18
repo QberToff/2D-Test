@@ -133,5 +133,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 233e90c5785cc944aba12ce8113585f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: 20
   popSFX: {fileID: 8300000, guid: 7c0ae70c3c9301c49b43b0c539f8a7cb, type: 3}
   popFX: {fileID: 7103344540415821624, guid: 1f0dd9beabf883f4aae82790f01f1ab7, type: 3}

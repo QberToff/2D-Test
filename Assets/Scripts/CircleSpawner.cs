@@ -42,6 +42,7 @@ public class CircleSpawner : MonoBehaviour
         spawnPos = transform.position;
         SetUpMoveBoudaries();
         diffcounter = changeEachCircle;
+        bundleLoader = FindObjectOfType<BundleLoader>();
     }
 
     IEnumerator Start()
@@ -74,7 +75,7 @@ public class CircleSpawner : MonoBehaviour
 
     IEnumerator SpawnCircles()
     {
-        if(!circle)
+        if(circle != null)
         {
             GenerateCircle();
             Debug.Log("Circle spawned");
@@ -147,7 +148,7 @@ public class CircleSpawner : MonoBehaviour
         {
             if(bundleLoader.IsChecked)
             {
-                circle = bundleLoader.GetLoadedAsset();
+                circle = bundleLoader.GetLoadedAsset().GetComponent<Circle>();
             }
 
 
