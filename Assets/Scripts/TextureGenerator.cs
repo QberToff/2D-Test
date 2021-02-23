@@ -4,46 +4,67 @@ using UnityEngine;
 
 public class TextureGenerator : MonoBehaviour
 {
+
+    Texture2D[] textures = new Texture2D[4];
+    
     private void Start()
     {
-        Texture2D texture = new Texture2D(128, 128, TextureFormat.RGBA32, false);
-        var rnd = GetComponent<SpriteRenderer>();
-        if(rnd != null)
-        {
-            Debug.Log("got renderer");
-            for(int w = 0; w <= 128; w++)
-            {
-                for (int h = 0; h <= 128; h++)
-                {
-                    Color col = Color.clear;
-                    texture.SetPixel(w, h, col);
+        textures[0] = new Texture2D(32, 32);
+        textures[1] = new Texture2D(64, 64);
+        textures[2] = new Texture2D(128, 128);
+        textures[3] = new Texture2D(256, 256);
 
-                }
-
-            }
-            texture.Apply();
-        }
-        else
-        {
-            Debug.Log("DONT HAVE RENDERER");
-        }
-        
-        Circle(texture, 64, 64, 64, Color.blue);
-        texture.Apply();
-        rnd.sprite = Sprite.Create(texture, new Rect(0, 0, 128, 128), new Vector2(0.5f, 0.5f), 128);
-
+        CreateTextures();
 
     }
 
+    
+    public void SetTexture(SpriteRenderer spr, float size)
+    {
+        switch (size)
+        {
+            case 32:
+                spr.sprite = Sprite.Create(textures[0], new Rect(0, 0, size, size), new Vector2(0.5f, 0.5f), size);
+                break;
+            case 64:
+                spr.sprite = Sprite.Create(textures[1], new Rect(0, 0, size, size), new Vector2(0.5f, 0.5f), size);
+                break;
+            case 128:
+                spr.sprite = Sprite.Create(textures[2], new Rect(0, 0, size, size), new Vector2(0.5f, 0.5f), size);
+                break;
+            case 256:
+                spr.sprite = Sprite.Create(textures[3], new Rect(0, 0, size, size), new Vector2(0.5f, 0.5f), size);
+                break;
+        }
 
-    public void Circle(Texture2D tex, int cx, int cy, int r, Color col)
+    }
+    
+    private void CreateTextures()
+    {
+        for (int i = 0; i <= 4; i++)
+        {
+           
+            for (int x = 0; x <= textures[i].width; x++)
+            {
+                for (int y = 0; x <= textures[i].height; y++)
+                {
+                    textures[i].SetPixel(x, y, Color.clear);
+                }
+            }
+            Color col = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f), 1f);
+            DrawCircle(textures[i], textures[i].width / 2, textures[i].height / 2, textures[i].height / 2, col);
+            textures[i].Apply();
+        }
+    }
+
+    private void DrawCircle(Texture2D tex, int cx, int cy, int r, Color col)
     {
         int x, y, px, nx, py, ny, d;
 
         for (x = 0; x <= r; x++)
         {
-            d = (int)Mathf.Ceil(Mathf.Sqrt(r * r - x * x));
-            for (y = 0; y <= d; y++)
+            //d = (int)Mathf.Ceil(Mathf.Sqrt(r * r - x * x));
+            for (y = 0; y <= r; y++)
             {
                 px = cx + x;
                 nx = cx - x;
