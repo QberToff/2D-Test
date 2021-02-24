@@ -8,8 +8,10 @@ public class CircleSpawner : MonoBehaviour
     Circle circle;
     Circle nextCircle;
 
-    //cashed ref for bundleloader
+    //cashed ref for bundle loader
     [SerializeField] BundleLoader bundleLoader;
+    //cashed ref for texture generator
+    [SerializeField] TextureGenerator textureGenerator;
 
     
     float timeBetweenSpawns = 1f;
@@ -99,38 +101,64 @@ public class CircleSpawner : MonoBehaviour
         float scaleFactor = Random.Range(minScale, maxScale);//генерация размера для круга 
         nextCircle = Instantiate(circle as Circle, new Vector3(Random.Range(xMin, xMax), spawnPos.y, spawnPos.z), Quaternion.identity);//инстант круга
         nextCircle.transform.localScale = new Vector3(scaleFactor, scaleFactor, 1);//изменение размера круга
-        Color col = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f), 1f);//генерация цвета круга
-        nextCircle.GetComponent<SpriteRenderer>().color = col;//присвоение сгенерированного цвета
+                                                                        //Color col = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f), 1f);//генерация цвета круга
+                                                                       //nextCircle.GetComponent<SpriteRenderer>().color = col;//присвоение сгенерированного цвета
+        SpriteRenderer spr = nextCircle.GetComponent<SpriteRenderer>();
         circleCounter++;
         
         //условия, отвечающие за установку скорости и количества очков в зависимости от размера
         if (scaleFactor >= minScale && scaleFactor <= 1f)
         {
+            if(TextureGenerator.TextureReady)
+            {
+                textureGenerator.SetTexture(spr, 32f);
+            }
             nextCircle.SetSpeed(5.5f);
             nextCircle.SetScore(4f);
         }
         else if (scaleFactor > 1f && scaleFactor <= 1.5f)
         {
+            if (TextureGenerator.TextureReady)
+            {
+                textureGenerator.SetTexture(spr, 64f);
+            }
             nextCircle.SetSpeed(4.5f);
             nextCircle.SetScore(3.5f);
         }
         else if (scaleFactor > 1.5f && scaleFactor <= 2f)
         {
+
+            if (TextureGenerator.TextureReady)
+            {
+                textureGenerator.SetTexture(spr, 128f);
+            }
             nextCircle.SetSpeed(3.5f);
             nextCircle.SetScore(3f);
         }
         else if (scaleFactor >2f && scaleFactor <= 2.5f)
         {
+            if (TextureGenerator.TextureReady)
+            {
+                textureGenerator.SetTexture(spr, 128f);
+            }
             nextCircle.SetSpeed(2.5f);
             nextCircle.SetScore(2.5f);
         }
         else if (scaleFactor > 2f && scaleFactor <= 2.5f)
         {
+            if (TextureGenerator.TextureReady)
+            {
+                textureGenerator.SetTexture(spr, 256f);
+            }
             nextCircle.SetSpeed(1.5f);
             nextCircle.SetScore(2.5f);
         }
         else if (scaleFactor > 2.5f && scaleFactor <= 3f)
         {
+            if (TextureGenerator.TextureReady)
+            {
+                textureGenerator.SetTexture(spr, 256f);
+            }
             nextCircle.SetSpeed(0.5f);
             nextCircle.SetScore(1.5f);
         }
@@ -150,6 +178,7 @@ public class CircleSpawner : MonoBehaviour
             }
             difflevel++;
             diffcounter += changeEachCircle;
+            textureGenerator.RemakeTextureArray();
             level.text = difflevel.ToString();
             Debug.Log(difflevel);
 
