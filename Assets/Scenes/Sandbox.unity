@@ -979,18 +979,13 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1079860890}
   m_CullTransparentMesh: 0
---- !u!1001 &1321034523
+--- !u!1001 &1438212817
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8177104449916318961, guid: 9bc822316c4f642cb92eb445cd2b3851,
-        type: 3}
-      propertyPath: assetBundleWinURL
-      value: https://drive.google.com/uc?export=download&id=1XC-8AUTUMdy5lHE5kzhd9N9KqQdmizky
-      objectReference: {fileID: 0}
     - target: {fileID: 8177104449916318966, guid: 9bc822316c4f642cb92eb445cd2b3851,
         type: 3}
       propertyPath: m_RootOrder

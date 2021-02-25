@@ -162,6 +162,13 @@ public class CircleSpawner : MonoBehaviour
             nextCircle.SetSpeed(0.5f);
             nextCircle.SetScore(1.5f);
         }
+        else
+        {
+            if (TextureGenerator.TextureReady)
+            {
+                textureGenerator.SetTexture(spr, 256f);
+            }
+        }
 
     }
 

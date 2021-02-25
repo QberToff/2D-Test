@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1362672838
+CRC: 1923895666
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: c5f09863eb80ff540528fa8245a1bfe0
+    Hash: aedb88ad53ce52763602f77653a1891f
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 663987f93eedcbb9f7df0b8c3786d0fd
+    Hash: 027c83c62d0616c3eb7a63b79bade717
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -34,8 +34,6 @@ ClassTypes:
 - Class: 199
   Script: {instanceID: 0}
 - Class: 212
-  Script: {instanceID: 0}
-- Class: 213
   Script: {instanceID: 0}
 Assets:
 - Assets/Prefab/Circle.prefab
