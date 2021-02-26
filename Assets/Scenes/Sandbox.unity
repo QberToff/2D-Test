@@ -986,6 +986,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8177104449916318961, guid: 9bc822316c4f642cb92eb445cd2b3851,
+        type: 3}
+      propertyPath: version
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8177104449916318961, guid: 9bc822316c4f642cb92eb445cd2b3851,
+        type: 3}
+      propertyPath: prefabname
+      value: Circle2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8177104449916318961, guid: 9bc822316c4f642cb92eb445cd2b3851,
+        type: 3}
+      propertyPath: assetBundleWinURL
+      value: https://drive.google.com/uc?export=download&id=1kbBgil2ztFRytTt89JmYcCxp8DR18cR1
+      objectReference: {fileID: 0}
     - target: {fileID: 8177104449916318966, guid: 9bc822316c4f642cb92eb445cd2b3851,
         type: 3}
       propertyPath: m_RootOrder

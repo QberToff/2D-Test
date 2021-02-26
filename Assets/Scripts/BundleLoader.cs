@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class BundleLoader : MonoBehaviour
 {
-    [SerializeField] string assetBundleMacURL = " ";
-    [SerializeField] string assetBundleWinURL = " ";
-    int version = 0;
+    [SerializeField] string assetBundleMacURL = "";
+    [SerializeField] string assetBundleWinURL = "";
+    [SerializeField] string prefabname = "";
+    [SerializeField] int version = 11;
     GameObject loadedAsset;
 
     //bool assetLoaded = false;
@@ -61,7 +62,7 @@ public class BundleLoader : MonoBehaviour
         Debug.Log("Bundle Loaded");
 
         var assetbudle = www.assetBundle;
-        string prefabname = "Circle";
+        //string prefabname = "Circle";
             
         var prefabRequest = assetbudle.LoadAssetAsync(prefabname, typeof(GameObject));//распаковка бандла
         yield return prefabRequest;
@@ -90,10 +91,11 @@ public class BundleLoader : MonoBehaviour
             Debug.Log(www.error);
             yield break;
         }
-        Debug.Log("Bundle Loaded");
-
         var assetbudle = www.assetBundle;
-        string prefabname = "Circle";
+        Debug.Log("Bundle Loaded" + www.assetBundle.name);
+
+        
+        
 
         var prefabRequest = assetbudle.LoadAssetAsync(prefabname, typeof(GameObject));//распаковка бандла
         yield return prefabRequest;
