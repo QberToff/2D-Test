@@ -44,5 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   assetBundleMacURL: 
-  assetBundleWinURL: https://drive.google.com/uc?export=download&id=1kbBgil2ztFRytTt89JmYcCxp8DR18cR1
+  assetBundleWinURL: https://drive.google.com/uc?export=download&id=1xrCLpae_mv_dauCTsJ4mBY9vxYBQK5Tj
   prefabname: Circle2
+  version: 2

@@ -92,7 +92,7 @@ public class BundleLoader : MonoBehaviour
             yield break;
         }
         var assetbudle = www.assetBundle;
-        Debug.Log("Bundle Loaded" + www.assetBundle.name);
+        Debug.Log("Bundle Loaded. Budlename: " + www.assetBundle.name);
 
         
         
