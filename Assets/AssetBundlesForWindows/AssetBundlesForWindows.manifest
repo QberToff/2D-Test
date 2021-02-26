@@ -1,7 +1,7 @@
 ManifestFileVersion: 0
-CRC: 1952551126
+CRC: 1168938489
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
-      Name: circlebundle
+      Name: firstcirclebundle
       Dependencies: {}
