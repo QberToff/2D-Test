@@ -70,7 +70,7 @@ public class TextureGenerator : MonoBehaviour
     public void RemakeTextureArray()
     {
         
-        for(int n = 0; n < textures.Length; n++ )
+        for(int n = 0; n < textures.Length; n++)
         {
             textures[n] = null;
         }

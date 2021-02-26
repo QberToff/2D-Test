@@ -76,7 +76,12 @@ public class Circle : MonoBehaviour
         var popFX = pop.colorOverLifetime;
         popFX.enabled = true;
 
-        Color col = GetComponent<SpriteRenderer>().color;
+        Sprite spr = GetComponent<SpriteRenderer>().sprite;
+
+
+        Color col = spr.texture.GetPixel(spr.texture.width / 2, spr.texture.width / 2);
+
+         //GetComponent<SpriteRenderer>().color;
         Gradient grad = new Gradient();
         grad.SetKeys(new GradientColorKey[] {new GradientColorKey(col, 0f),
              new GradientColorKey(col, 0.5f),
