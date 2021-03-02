@@ -593,7 +593,7 @@ MonoBehaviour:
   bundleLoader: {fileID: 0}
   textureGenerator: {fileID: 1387626766}
   level: {fileID: 38162624}
-  changeEachCircle: 20
+  changeEachCircle: 5
 --- !u!4 &342378675
 Transform:
   m_ObjectHideFlags: 0

@@ -22,7 +22,7 @@ public class TextureGenerator : MonoBehaviour
     }
 
     
-    public void SetTexture(SpriteRenderer spr, float size)
+    public void SetTexture(SpriteRenderer spr, float size) //метод для установки текстурв SpriteRenderer компонент круга
     {
         switch (size)
         {
@@ -46,7 +46,7 @@ public class TextureGenerator : MonoBehaviour
 
     }
     
-    private void CreateTextures()
+    private void CreateTextures() //метод создания текстур и заполнения их прозрачным цветом
     {
         for (int i = 0; i < 4; i++)
         {
@@ -67,7 +67,7 @@ public class TextureGenerator : MonoBehaviour
     }
 
     
-    public void RemakeTextureArray()
+    public void RemakeTextureArray() //метод пересоздающий текстуры и освобождающий память от предыдущего сета текстур
     {
         
         for(int n = 0; n < textures.Length; n++)
@@ -93,7 +93,7 @@ public class TextureGenerator : MonoBehaviour
     }
 
     
-    private void DrawCircle(Texture2D tex, int cx, int cy, int r, Color col)
+    private void DrawCircle(Texture2D tex, int cx, int cy, int r, Color col) //метод отрисовки круга на текстуре
     {
         int x, y, px, nx, py, ny, d;
 

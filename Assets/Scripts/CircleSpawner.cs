@@ -106,7 +106,7 @@ public class CircleSpawner : MonoBehaviour
         SpriteRenderer spr = nextCircle.GetComponent<SpriteRenderer>();
         circleCounter++;
         
-        //условия, отвечающие за установку скорости и количества очков в зависимости от размера
+        //условия, отвечающие за установку скорости, текстуры и количества очков в зависимости от размера
         if (scaleFactor >= minScale && scaleFactor <= 1f)
         {
             if(TextureGenerator.TextureReady)
