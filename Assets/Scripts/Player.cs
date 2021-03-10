@@ -50,7 +50,7 @@ public class Player : MonoBehaviour
 
         if (hit.transform != null)
         {
-            Debug.Log(hit.transform.name);
+            //Debug.Log(hit.transform.name);
             Circle circle = hit.collider.gameObject.GetComponent<Circle>();
            
             if (circle != null)//взаимодействие с нажатым кружком

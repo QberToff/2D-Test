@@ -88,7 +88,7 @@ public class CircleSpawner : MonoBehaviour
         if(circle != null)
         {
             GenerateCircle();
-            Debug.Log("Circle spawned");
+            //Debug.Log("Circle spawned");
             yield return new WaitForSeconds(timeBetweenSpawns);
         }
         
@@ -151,7 +151,7 @@ public class CircleSpawner : MonoBehaviour
             difflevel++;
             diffcounter += changeEachCircle;
             level.text = difflevel.ToString();
-            Debug.Log(difflevel);
+            //Debug.Log(difflevel);
 
         }
         
