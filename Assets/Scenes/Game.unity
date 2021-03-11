@@ -592,7 +592,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bundleLoader: {fileID: 0}
   level: {fileID: 38162624}
-  changeEachCircle: 25
+  changeEachCircle: 10
 --- !u!4 &342378675
 Transform:
   m_ObjectHideFlags: 0
